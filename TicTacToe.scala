@@ -17,11 +17,26 @@ class Grid {
     Vector(new Cell, new Cell, new Cell)
   )
   def play(e:Char, x:Int, y:Int):String = {
+    var response:String = ""
     if(x < 0 || x > 2 || y < 0 || y > 2)
-      "invalid move"
+      response = "invalid move"
     else
-      cells(x)(y).set(e)
+      response = cells(x)(y).set(e)
+
+      printGrid
+      response
     }
+  def printGrid():Unit = {
+    println("____")
+    for ( row <- cells ) {
+      print('|')
+      for ( cell <- row ) {
+        print(cell.entry)
+      }
+      println('|')
+    }
+    println("____")
+  }
 }
 
 
