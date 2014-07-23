@@ -45,7 +45,7 @@ mapAndreduce
 Maps
 Methods
 # MethodsInsideClasses
-MoreConditionals
+# MoreConditionals
 NamedAndDefaultArguments
 Overloading
 OverridingMethods
