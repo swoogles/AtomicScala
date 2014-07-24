@@ -78,6 +78,7 @@ val grid = new Grid
 grid.play('X', 1, 1) is "successful move"
 grid.play('X', 1, 1) is "invalid move"
 grid.play('O', 1, 3) is "invalid move"
+grid.play('X', 1, 2) is "successful move"
 /*grid.printGrid*/
 
 
