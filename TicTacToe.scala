@@ -24,7 +24,8 @@ class Grid {
     else
       response = cells(x)(y).set(e)
       if ( response == "successful move" ) {
-        checkWinner(e)
+        if ( checkWinner(e) )
+          response = "winner!"
       }
 
       printGrid
@@ -34,7 +35,7 @@ class Grid {
   //val results3 =
   //    elements collect { case se: SpecialElement if accept(se) => transform(se) }
 
-  def checkWinner(e:Char) {
+  def checkWinner(e:Char):Boolean = {
     var lDiagCnt = 0
     var rDiagCnt = 0
     var startCnts = Vector( (0,1),(0,2),(0,3))
@@ -63,8 +64,7 @@ class Grid {
     if ( colCnts.contains(3)  )
       victory = true
 
-    if ( victory )
-      println("Winner!")
+    victory
   }
 
   
