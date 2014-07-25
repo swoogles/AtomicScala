@@ -32,23 +32,19 @@ class Grid {
       response
     }
 
-  //val results3 =
-  //    elements collect { case se: SpecialElement if accept(se) => transform(se) }
-
   def checkWinner(e:Char):Boolean = {
     var lDiagCnt = 0
     var rDiagCnt = 0
-    var startCnts = Vector( (0,1),(0,2),(0,3))
     var colCnts = Seq(0,0,0)
     var victory = false
     var diagIndex = 2
-    var rowIdx = 0
 
-    for ( row <- cells ) {
+    for ( (row,rowIdx) <- cells.view.zipWithIndex ) {
       var rowCnt = 0
       for((cell,index) <- row.view.zipWithIndex) {
         if ( cell.entry == e ) {
           rowCnt+=1
+          // This is needed to update the immutable counters
           colCnts = colCnts.view.zipWithIndex.map( { 
               case (cnt:Int, i:Int) => 
                 if ( i == index ) { (cnt+1) } 
@@ -67,10 +63,7 @@ class Grid {
         }
 
       }
-      rowIdx+=1
     }
-    colCnts.foreach( (cnt) => print(cnt + " ") )
-
     if ( colCnts.contains(3)  || rDiagCnt == 3 || lDiagCnt == 3)
       victory = true
 
