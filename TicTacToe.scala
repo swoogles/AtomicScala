@@ -41,6 +41,8 @@ class Grid {
     var startCnts = Vector( (0,1),(0,2),(0,3))
     var colCnts = Seq(0,0,0)
     var victory = false
+    var diagIndex = 2
+    var rowIdx = 0
 
     for ( row <- cells ) {
       var rowCnt = 0
@@ -53,15 +55,23 @@ class Grid {
                 else { (cnt) } 
             }).force 
 
+          if ( index == rowIdx ) {
+            lDiagCnt+=1
+          }
+          if ( index == (diagIndex - rowIdx) ) {
+            rDiagCnt+=1
+          }
+
           if ( rowCnt == 3 )
             victory = true
         }
 
       }
+      rowIdx+=1
     }
     colCnts.foreach( (cnt) => print(cnt + " ") )
 
-    if ( colCnts.contains(3)  )
+    if ( colCnts.contains(3)  || rDiagCnt == 3 || lDiagCnt == 3)
       victory = true
 
     victory
