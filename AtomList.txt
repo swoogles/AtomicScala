@@ -8,7 +8,7 @@ BaseClassInitialization
 Brevity
 BuildingSystemswithTraits
 CaseClasses
-ClassArguments
+# ClassArguments
 # ClassesAndObjects
 ClassExercises
 CombiningSequenceswithzip
@@ -50,7 +50,7 @@ NamedAndDefaultArguments
 Overloading
 OverridingMethods
 ParameterizedTypes
-PatternMatching
+# PatternMatching
 PatternMatchingwithCaseClasses
 PatternMatchingwithTuples
 PatternMatchingwithTypes
@@ -60,8 +60,8 @@ ReferencesAndMutability
 Sequences
 Sets
 StringInterpolation
-Summary1
-Summary2
+# Summary1
+# Summary2
 TaggingTraitsAndCaseObjects
 # Testing
 Traits
