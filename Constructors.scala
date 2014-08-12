@@ -52,3 +52,50 @@ doubleHalfCaf.shots is 2
 tripleHalfCaf.decaf is 2
 tripleHalfCaf.caf is 1
 tripleHalfCaf.shots is 3
+
+//2. Create a new class Tea that has 2 methods: describe, which includes information about whether the tea includes milk, sugar, is decaffeinated, and includes the name; and calories, which adds
+//100 calories for milk and 16 calories for sugar. Satisfy the following tests:
+
+class Tea(
+  val milk:Boolean = false,
+  val sugar:Boolean = false,
+  val decaf:Boolean = false,
+  val name:String = "Earl Grey"
+)
+{
+  def calories():Int = {
+    var calories = 0
+    if ( milk )
+      calories += 100
+    if ( sugar )
+      calories += 16
+    calories
+  }
+
+  def describe():String = {
+    var description = name
+    if (decaf)
+      description += " decaf"
+    if (sugar)
+      description += " + sugar"
+    if (milk)
+      description += " + milk"
+    description
+  }
+}
+
+
+
+val tea = new Tea
+tea.describe is "Earl Grey"
+tea.calories is 0
+val lemonZinger = new Tea(
+  decaf = true, name="Lemon Zinger")
+lemonZinger.describe is
+"Lemon Zinger decaf"
+lemonZinger.calories is 0
+val sweetGreen = new Tea(
+  name="Jasmine Green", sugar=true)
+sweetGreen.describe is
+"Jasmine Green + sugar"
+sweetGreen.calories is 16
